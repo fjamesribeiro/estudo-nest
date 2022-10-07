@@ -8,6 +8,7 @@ import {
   Post,
 } from '@nestjs/common';
 import { CoursesService } from './courses.service';
+import { CreateCourseDto } from './dto/create-course.dto';
 
 @Controller('courses')
 export class CoursesController {
@@ -24,8 +25,8 @@ export class CoursesController {
   }
 
   @Post()
-  create(@Body() body) {
-    return this.serviceConstructor.create(body);
+  create(@Body() createCourseDto: CreateCourseDto) {
+    return this.serviceConstructor.create(createCourseDto);
   }
 
   @Patch(':id')
